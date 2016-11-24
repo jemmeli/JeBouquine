@@ -1,0 +1,146 @@
+﻿<link href="../Content/bootstrap.css" rel="stylesheet"/>
+<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Littérature</a></li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="form-group col-lg-2 pull-right">
+        <input type="number" class="form-control" id="prix" placeholder="Prix" [value]="MaxPrix" (input)="MaxPrix = $event.target.value">
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3 col-lg-2">
+        <ul class="list-group">
+            <li class="list-group-item"><a [routerLink]="['/LesLivres','Jeunesse']">Lecture jeunesse</a></li>
+            <li class="list-group-item"><a [routerLink]="['/LesLivres','SciencesTechniques']">Sciences & Techniques</a>
+            </li>
+            <li class="list-group-item"><a [routerLink]="['/LesLivres','DroitEconomieGestion']">Droit, Economie &
+                Gestion</a></li>
+            <li class="list-group-item"><a [routerLink]="['/LesLivres','VoyagesNature']">Voyages & Nature</a></li>
+            <li class="list-group-item"><a [routerLink]="['/LesLivres','ScolairePedagogie']">Scolaire & Pédagogie</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="col-md-8 col-md-offset-1 col-lg-9 col-lg-offset-0">
+
+
+        <div class="media col-lg-6" style="padding:0 0 0 0;margin-top: 0px;"
+             *ngFor="let item of livres | InferieurA:MaxPrix">
+            <div class="media-left">
+                <a href="#/Detail/">
+                    <img class="media-object thumbnail" src="http://placehold.it/150x150">
+                </a>
+            </div>
+            <div class="media-body" style="padding:10px 10px 10px 10px;">
+                <h4 class="media-heading">titre 1 </h4>
+                <h6>Auteur 1</h6>
+                <div class="text text-danger" style="margin-bottom:10px;margin-top:10px;">
+                    <div class="text-left">
+                        <strong>Prix:</strong> {{item.Prix}} TND
+                        <a [routerLink]="['/Detail',item.Id]" class="pull-right">Details</a>
+                    </div>
+                </div>
+
+                <div class="input-group col-lg-6 col-lg-offset-3 ">
+                    <input type="number" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" (click)="AjouterLivrePanier(item)"><i
+                                class="fa fa-cart-plus"></i></button>
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="media col-lg-6" style="padding:0 0 0 0;margin-top: 0px;">
+            <div class="media-left">
+                <a href="#/Detail/">
+                    <img class="media-object thumbnail" src="http://placehold.it/150x150">
+                </a>
+            </div>
+            <div class="media-body" style="padding:10px 10px 10px 10px;">
+                <h4 class="media-heading">titre 2 </h4>
+                <h6>Auteur 2</h6>
+                <div class="text text-danger" style="margin-bottom:10px;margin-top:10px;">
+                    <div class="text-left">
+                        <strong>Prix:</strong> 30 TND
+                        <a href="#/Detail/" class="pull-right">Details</a>
+                    </div>
+                </div>
+
+                <div class="input-group col-lg-6 col-lg-offset-3 ">
+                    <input type="number" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><i class="fa fa-cart-plus"></i></button>
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="media col-lg-6" style="padding:0 0 0 0;margin-top: 0px;">
+            <div class="media-left">
+                <a href="#/Detail/">
+                    <img class="media-object thumbnail" src="http://placehold.it/150x150">
+                </a>
+            </div>
+            <div class="media-body" style="padding:10px 10px 10px 10px;">
+                <h4 class="media-heading">titre 3 </h4>
+                <h6>Auteur 3</h6>
+                <div class="text text-danger" style="margin-bottom:10px;margin-top:10px;">
+                    <div class="text-left">
+                        <strong>Prix:</strong> 30 TND
+                        <a href="#/Detail/" class="pull-right">Details</a>
+                    </div>
+                </div>
+
+                <div class="input-group col-lg-6 col-lg-offset-3 ">
+                    <input type="number" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><i class="fa fa-cart-plus"></i></button>
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="media col-lg-6" style="padding:0 0 0 0;margin-top: 0px;">
+            <div class="media-left">
+                <a href="#/Detail/">
+                    <img class="media-object thumbnail" src="http://placehold.it/150x150">
+                </a>
+            </div>
+            <div class="media-body" style="padding:10px 10px 10px 10px;">
+                <h4 class="media-heading">titre 3 </h4>
+                <h6>Auteur 3</h6>
+                <div class="text text-danger" style="margin-bottom:10px;margin-top:10px;">
+                    <div class="text-left">
+                        <strong>Prix:</strong> 30 TND
+                        <a href="#/Detail/" class="pull-right">Details</a>
+                    </div>
+                </div>
+
+                <div class="input-group col-lg-6 col-lg-offset-3 ">
+                    <input type="number" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><i class="fa fa-cart-plus"></i></button>
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<section id="primary" class="content-full-width">
+    <div class="full-width-section">
+        <div class="container">
+            <div class="page_info"><h3 class="aligncenter"><span> <i class="fa fa-user"></i></span> Login </h3></div>
+            <div class="dt-sc-margin20"></div>
+        </div>
+    </div>
+    <div class="full-width-section parallax full-section-bg">
+        <div class="container">
+            <div class="dt-sc-clear"></div>
+            <div class="form-wrapper login">
+                <form id="loginform" name="frmLogin" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                    <p
+                        [ngClass]="{'has-error': !form.valid, 'has-success': form.valid}"><input
+                        placeholder="Username or Email" id="user_name" name="user" autocomplete="off" type="text"
+                        ngModel required>
+                    </p>
+                    <p [ngClass]="{'has-error': !form.valid, 'has-success': form.valid}">
+                        <input placeholder="Password"  id="user_pwd"  name="password"  type="password" ngModel required>
+                    </p>
+                    <input class="button" value="Log-In" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

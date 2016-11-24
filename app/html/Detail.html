@@ -1,0 +1,117 @@
+﻿<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="Index.html">Accueil</a></li>
+        <li><a href="#/LesLivres/">Littérature</a></li>
+        <li>Titre 1</li>
+    </ol>
+</div>
+
+<div class="col-md-12 col-md-12">
+    <div class="panel" style="padding: 30px 30px 30px 30px;">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object thumbnail" src="http://placehold.it/350x500" alt="...">
+                </a>
+            </div>
+            <div class="media-body" style="padding: 30px 30px 30px 30px;">
+                <a href="#/LesLivres" class="btn btn-link"> <i class="fa fa-angle-left" style="margin-right:15px;"></i>Retour</a>
+                <div class="page-header">
+                    <h1> {{Livre.Nom}} </h1>
+                    <small>{{Livre.Auteur}}</small>
+                </div>
+                <div>
+                    <ul class="nav nav-tabs">
+                        <li class="active" data-toggle="tab"><a href="#Description">Description</a></li>
+                        <li><a href="#Carac" data-toggle="tab">Caractéristiques</a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane  active" id="Description"
+                             style="padding: 20px 30px 30px 5px;">
+                            <p>
+                                Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod,
+                                iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc
+                                tempor, metus vel.
+                                Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla
+                                condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis
+                                scelerisque eu ac ante.
+                                Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio
+                                sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui
+                                ornare nisl, sollicitudin interdum turpis nunc eget.
+                                Sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc
+                                fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus,
+                                fringilla.
+                                Vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla
+                                pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor
+                                aliquam, eros purus vulputate leo.
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="Carac" style="padding: 20px 30px 30px 5px;">
+                            <div class="form-horizontal" role="form">
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <label class="col-lg-4 text-right" style="font-weight:bold"
+                                               for="exampleInputEmail">ISBN :</label>
+                                        <span class="col-lg-4 text-left"> 000-000-000-0000 </span>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <label class="col-lg-4 text-right" style="font-weight:bold"
+                                               for="exampleInputEmail">Maison d'édition :</label>
+                                        <span class="col-lg-4 text-left"> MaisonEdition </span>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <label class="col-lg-4 text-right" style="font-weight:bold"
+                                               for="exampleInputEmail">Nombre Pages :</label>
+                                        <span class="col-lg-4 text-left"> 101 </span>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <label class="col-lg-4 text-right" style="font-weight:bold"
+                                               for="exampleInputEmail">Date Sortie :</label>
+                                        <span class="col-lg-4 text-left"> 01 Juin 2016 </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<h4 class="text text-danger">Prix: 55<span class="glyphicon glyphicon-euro"></span></h4>-->
+
+                <div>
+                    <div class="pull-left">
+                        <span class="text-danger" style="font-weight:bold;font-size:18px;">Précommande : </span>
+
+                        <span class="text-danger text-center" style="font-size:35px;">30 TND</span>
+                    </div>
+                    <div class="input-group col-lg-2 pull-right">
+                        <input type="number" class="form-control" [value]="Livre.Quantite"
+                               (input)="Livre.Quantite = $event.target.value">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" (click)="AjouterLivrePanier(Livre)">
+                                <i class="fa fa-cart-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-10 pull-right">
+    <label class="col-lg-3 text-left" style="font-weight:bold">
+        Date derniiére commande:
+    </label>
+    <span class="col-lg-4 text-left">{{Livre.DateDerniereCommande | date:'yyyy-MM-dd à HH:mm'}}</span>
+</div>
+
+
+<script>
+    $('.nav-tabs a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+</script>

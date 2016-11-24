@@ -1,0 +1,139 @@
+﻿<div class="top-bar type5">
+    <!-- **container - Starts** -->
+    <div class="container">
+
+        <!--<ul class="top-contact-details alignleft">
+            <li class="hidden-xs"><a title="Go to google map"><i class="fa fa-map-marker"></i>
+                <span>Avenue Habib Bourguiba, Tunisie</span>
+            </a></li>
+            <li class="hidden-xs"><i class="fa fa-mobile"></i><span>(+216) 71 000 000</span></li>
+            <li><i class="fa fa-envelope"></i><a href="#">Contact@JeBouquine.com</a></li>
+        </ul>-->
+        <adresse adressePostale="Avenue Habib Bourguiba, Tunisie" numeroTelephone="(+216) 71 000 000" email="Contact@JeBouquine.com" (clickGoogleMaps)="clickTogoogleMaps($event)"></adresse>
+
+
+        <ul class="top-social-icons alignright">
+            <li><a href="#" title="facebook"> <i class="fa fa-facebook-square"></i> </a></li>
+            <li><a href="#" title="twitter"> <i class="fa fa-twitter"></i> </a></li>
+            <li><a href="#" title="pinterest"> <!--<i class="fa fa-pinterest"></i>-->  </a></li>
+            <li><a href="#" title="youtube"> <i class="fa fa-youtube"></i> </a></li>
+        </ul>
+        <div class="service-option alignright" *ngIf="!LoggedIn">
+            <a class="btn btn-danger" href="CreerCompte.html" title="Créer Client"> <span
+                    class="fa fa-user margin15"></span></a>
+            <a class="btn btn-danger" href="Login.html" title="Login"><span class="fa fa-sign-in margin15"></span></a>
+        </div>
+
+
+    </div> <!-- **container - End** -->
+</div> <!-- **Top Bar - End** -->
+<!-- **Headernavbar-nav** -->
+
+<div class="row nav1  " id="header-wrapper">
+    <nav class="navbar navbar-inverse header6" id="top-menu" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle" data-target="#navbarCollapse" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+            </div>
+            <!-- Collapse navigation -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a [routerLink]="['/Accueil']">Accueil</a>
+
+                    </li>
+                    <!--<li class="Titre">  <span>JeBouquine <i class="fa fa-book" style="color:aliceblue"></i></span> </li>-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Tous nos rayons<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a [routerLink]="['LesLivres/Jeunesse']">Lecture jeunesse</a></li>
+                            <li><a [routerLink]="['LesLivres/SciencesTechniques']">Sciences & Techniques</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a [routerLink]="['LesLivres/DroitEconomieGestion']">Droit, Economie & Gestion</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a [routerLink]="['LesLivres/VoyagesNature']">Voyages & Nature</a></li>
+                            <li><a [routerLink]="['LesLivres/ScolairePedagogie']">Scolaire & Pédagogie</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a [routerLink]="['Contact']">Contact</a>
+
+                    </li>
+                    <li>
+                        <a [routerLink]="['BesoinAide']">Besoin d'aide ?</a>
+
+                    </li>
+
+
+                </ul>
+                <!-- Search box -->
+
+                <ul class="top-shop-cart alignright hidden-xs hidden-sm" style="z-index:99">
+                    <li class="dt-sc-cart"><a href="#"> <i class="fa fa-shopping-cart"></i> <span class="badge"
+                                                                                                  style="margin-left:10px;margin-top:0px;"> {{CalculerNombreTotalLivre()}} </span></a>
+                        <div class="shopping-cart">
+                            <ul class="product_cart_list">
+                                <li *ngFor="let item of PanierLivre"><a> <img src="http://placehold.it/70x80&text=image"
+                                                                              alt="image"/>{{item.Nom}} </a> <a
+                                        (click)="SupprimerLivre(item)"> <span class="remove fa fa-times"
+                                                                              style="color:#ffffff;background-color:red"> </span>
+                                </a>
+                                    <div class="product-details"><p class="quantity"><span class="amount">{{item.Prix}} TND</span>
+                                        X {{item.Quantite}}</p></div>
+                                </li>
+                            </ul>
+                            <p class="total">Total<span class="amount">{{CalculerMontantTotal()}} TND</span></p>
+                            <p class="buttons"><a href="#">Valider</a></p></div>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="input-group"><input type="text" class="form-control" placeholder="Search"
+                                                    name="srch-term" id="srch-term">
+                        <div class="input-group-btn">
+                            <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!-- End container-fluid -->
+    </nav>
+    <!-- End navbar-inverse -->
+</div>
+
+
+<div class="container" style="width:100%;padding:-15px -15px">
+    <router-outlet></router-outlet>
+</div>
+<div class="row top-bar type5">
+    <div class="text-center col-lg-12" style="color:black !important;">
+
+
+        <!--<ul class="top-contact-details alignleft" *ngIf="LoggedIn">
+            <li class="hidden-xs"><a title="Go to google map"><i class="fa fa-map-marker" onclick="alert('88');"></i>
+                <span>Avenue Habib Bourguiba, Tunisie</span>
+            </a></li>
+            <li class="hidden-xs"><i class="fa fa-mobile"></i><span>(+216) 71 000 000</span></li>
+            <li><i class="fa fa-envelope"></i><a href="#">Contact@JeBouquine.com</a></li>
+        </ul>-->
+        <adresse adressePostale="Avenue Habib Bourguiba, Tunisie" numeroTelephone="(+216) 71 000 000" email="Contact@JeBouquine.com" (clickGoogleMaps)="clickTogoogleMaps($event)"></adresse>
+
+    </div>
+
+</div>
+
+
+
